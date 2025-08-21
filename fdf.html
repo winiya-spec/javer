@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>와인 컬렉션</title>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #f9f7f6;
+      margin: 0;
+      padding: 2rem;
+      color: #1a1a1a;
+    }
+    .collection-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .collection-header h2 {
+      font-size: 2rem;
+      margin: 0;
+      color: #1a2b4b; /* 네이비톤 */
+    }
+    .tab-buttons button {
+      background-color: #7b0f1a; /* 보르도 */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 1.5rem;
+      margin-left: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .tab-buttons button:hover,
+    .tab-buttons button.active {
+      background-color: #4e0a10;
+    }
+    .product-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .product-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .product-info {
+      padding: 1rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-info h3 {
+      margin: 0 0 0.5rem 0;
+      color: #7b0f1a;
+    }
+    .product-info p {
+      margin: 0 0 1rem 0;
+      color: #555;
+      font-size: 0.9rem;
+    }
+    .add-cart-btn {
+      background-color: #1a2b4b;
+      color: white;
+      border: none;
+      padding: 0.6rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    .add-cart-btn:hover {
+      background-color: #0d1a34;
+    }
+  </style>
+</head>
+<body>
+
+<section id="collection">
+  <div class="collection-header">
+    <h2>Our Collections</h2>
+    <div class="tab-buttons">
+      <button class="active">빈티지 와인</button>
+      <button>프리미엄 와인</button>
+    </div>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=400&q=80" alt="빈티지 와인 1" />
+      <div class="product-info">
+        <h3>빈티지 와인 1</h3>
+        <p>1978년 빈티지</p>
+        <button class="add-cart-btn">장바구니 담기</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=400&q=80" alt="빈티지 와인 2" />
+      <div class="product-info">
+        <h3>빈티지 와인 2</h3>
+        <p>1985년 빈티지</p>
+        <button class="add-cart-btn">장바구니 담기</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1509228627152-4c56d6f13e36?auto=format&fit=crop&w=400&q=80" alt="빈티지 와인 3" />
+      <div class="product-info">
+        <h3>빈티지 와인 3</h3>
+        <p>1992년 빈티지</p>
+        <button class="add-cart-btn">장바구니 담기</button>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=400&q=80" alt="빈티지 와인 4" />
+      <div class="product-info">
+        <h3>빈티지 와인 4</h3>
+        <p>2000년 빈티지</p>
+        <button class="add-cart-btn">장바구니 담기</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

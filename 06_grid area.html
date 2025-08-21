@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid line</title>
+
+<style>
+
+#wrapper { width: 700px;
+display: grid;
+grid-template-columns: repeat(3,1fr);
+grid-template-rows: repeat(3,100px);
+grid-template-areas:
+" b1 b1 b1 "/* 1행 */
+" b2 b3 b3 "/* 2행 */
+" b2 . b4 "/* 3행 */
+}
+
+/* 템플릿 영역(grid-area:아이템)설정=> 템플릿 영역(grid-template-areas)  배치 */
+.box {padding: 15px; font-weight: bold; display: flex; justify-content: center; align-items: center; color: #fff;}
+.box1 {background-color: #3689ff; 
+  grid-area:b1;
+
+
+}
+.box2 {background-color: #00cf12;
+  grid-area:b2;
+}
+
+
+.box3 {background-color: #ff9019;
+  grid-area:b3;
+}
+
+
+
+.box4 {background-color: #ffd000;
+  grid-area:b4;
+}
+
+</style>
+
+</head>
+<body>
+  <div id="wrapper">
+  <div class="box box1">box1</div>
+  <div class="box box2">box2</div>
+  <div class="box box3">box3</div>
+  <div class="box box4">box4</div>
+  </div>
+</body>
+</html>

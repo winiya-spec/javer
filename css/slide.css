@@ -1,0 +1,114 @@
+   html, body {
+  height: auto;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+ 
+swiper-container {
+  width: 100vw;
+  height: 800px; /* 필요하면 조절 */
+  margin: 0 auto;
+  position: relative;
+   display: block;   /* 꼭 필요함 */
+}
+
+
+
+
+swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background: #000;
+  position: relative;
+}
+
+swiper-slide img {
+  width: 100%;      /* 슬라이드 너비에 꽉 채움 */
+  height: 100%;     /* 슬라이드 높이에 꽉 채움 */
+  object-fit: cover; /* 이미지 비율 유지하며 슬라이드 꽉 채우기 */
+  display: block;
+}
+    swiper-container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+
+  swiper-container::part(pagination-bullet) {
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+  }
+
+swiper-container::part(scrollbar) {
+  background: rgba(255, 255, 255, 0.3);
+  height: 4px;
+  bottom: 10px;
+}
+
+
+
+
+
+
+/* 버튼 스타일 커스터마이징 */
+swiper-container::part(button-prev),
+swiper-container::part(button-next) {
+  color: white;
+  width: 20px;
+  height: 20px;
+  padding: 15px;
+  background-color: rgba(255, 255, 255, 0.2);
+
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+/* 화살표 아이콘 크기 */
+swiper-container::part(button-prev)::after,
+swiper-container::part(button-next)::after {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* 호버 효과 */
+swiper-container::part(button-prev):hover,
+swiper-container::part(button-next):hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+
+
+
+
+swiper-slide {
+  position: relative;
+}
+
+.slide-text {
+  position: absolute;
+  top: 50px;      /* 위에서 20px 떨어지게 */
+  left: 50px;     /* 왼쪽에서 20px 떨어지게 */
+  color: white;   /* 흰색 글씨 */
+  text-shadow: 0 0 5px rgba(0,0,0,0.7);  /* 글씨 잘 보이도록 그림자 */
+  z-index: 10;
+  max-width: 400px;
+}
+
+.slide-text h2 {
+  margin: 0 0 5px 0;
+  font-size: 60px;
+}
+
+.slide-text p {
+  margin: 0;
+  font-size: 20px;
+}

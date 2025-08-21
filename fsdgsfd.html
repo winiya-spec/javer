@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>와인 브랜드 공식 웹사이트</title>
+  <link rel="stylesheet" href="./css/style1.css">
+</head>
+<body>
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>와인 브랜드 공식 웹사이트</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- 1. 헤더 / 메뉴 -->
+  <header class="header">
+    <div class="logo">
+      <a href="#">🍷 WinePrestige</a>
+    </div>
+    <nav class="nav">
+      <ul>
+        <li><a href="#home">홈</a></li>
+        <li><a href="#wines">와인 소개</a></li>
+        <li><a href="#story">와인 스토리</a></li>
+        <li><a href="#collections">컬렉션</a></li>
+        <li><a href="#events">이벤트</a></li>
+        <li><a href="#cart">장바구니</a></li>
+        <li><a href="#contact">고객센터</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 2. 메인 히어로 섹션 -->
+  <section id="home" class="hero">
+    <h1>전설의 와인을 만나다</h1>
+    <p>프리미엄 와인 컬렉션, 당신의 특별한 순간을 위한 선택</p>
+    <a href="#wines" class="btn-primary">와인 컬렉션 보기</a>
+  </section>
+
+  <!-- 3. 와인 소개 (그리드) -->
+  <section id="wines" class="wine-grid">
+    <h2>와인 소개</h2>
+    <div class="filter">
+      <!-- 필터 UI: 종류, 가격 등 (추후 JS 적용 가능) -->
+      <label>종류:
+        <select>
+          <option>전체</option>
+          <option>레드</option>
+          <option>화이트</option>
+          <option>스파클링</option>
+          <option>로제</option>
+        </select>
+      </label>
+    </div>
+    <div class="grid-container">
+      <!-- 와인 카드 예시 -->
+      <article class="wine-card">
+        <img src="images/wine1.jpg" alt="Château Margaux" />
+        <h3>Château Margaux</h3>
+        <p>France | Red | ₩450,000</p>
+        <button>장바구니 담기</button>
+      </article>
+      <article class="wine-card">
+        <img src="images/wine2.jpg" alt="Sauvignon Blanc" />
+        <h3>Sauvignon Blanc</h3>
+        <p>New Zealand | White | ₩120,000</p>
+        <button>장바구니 담기</button>
+      </article>
+      <!-- 반복 ... -->
+    </div>
+  </section>
+
+  <!-- 4. 와인 스토리 -->
+  <section id="story" class="wine-story">
+    <h2>와인 스토리</h2>
+    <p>우리는 오랜 전통과 정성으로 최고의 와인을 만듭니다.</p>
+    <img src="images/vineyard.jpg" alt="와이너리 전경" />
+  </section>
+
+  <!-- 5. 컬렉션 -->
+  <section id="collections" class="collections">
+    <h2>프리미엄 컬렉션</h2>
+    <div class="collection-list">
+      <div class="collection-item">
+        <img src="images/vintage.jpg" alt="빈티지 와인" />
+        <h3>빈티지 와인</h3>
+      </div>
+      <div class="collection-item">
+        <img src="images/sparkling.jpg" alt="스파클링 와인" />
+        <h3>스파클링 와인</h3>
+      </div>
+      <!-- 추가 컬렉션 -->
+    </div>
+  </section>
+
+  <!-- 6. 이벤트 / 프로모션 -->
+  <section id="events" class="events">
+    <h2>이벤트 & 프로모션</h2>
+    <p>지금 구매 시 특별 할인과 사은품 증정!</p>
+    <a href="#wines" class="btn-primary">할인 와인 보기</a>
+  </section>
+
+  <!-- 7. 장바구니 -->
+  <section id="cart" class="cart">
+    <h2>장바구니</h2>
+    <p>현재 장바구니가 비어 있습니다.</p>
+  </section>
+
+  <!-- 8. 고객센터 -->
+  <section id="contact" class="contact">
+    <h2>고객센터</h2>
+    <form>
+      <label for="name">이름</label>
+      <input id="name" type="text" placeholder="이름을 입력하세요" required />
+
+      <label for="email">이메일</label>
+      <input id="email" type="email" placeholder="이메일을 입력하세요" required />
+
+      <label for="message">문의 내용</label>
+      <textarea id="message" placeholder="문의 내용을 입력하세요" required></textarea>
+
+      <button type="submit">문의 보내기</button>
+    </form>
+  </section>
+
+  <!-- 9. 푸터 -->
+  <footer class="footer">
+    <p>© 2025 WinePrestige. All rights reserved.</p>
+    <address>
+      서울특별시 강남구 와인로 123<br />
+      연락처: 02-1234-5678 | 이메일: info@wineprestige.com
+    </address>
+  </footer>
+
+</body>
+</html>

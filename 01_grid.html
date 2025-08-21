@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid</title>
+  <style>
+    /* 
+열설정
+ grid-template-columns: <track-size> <track-size> <track-size>...;
+ 단위: px, em, %, fr
+ 반복 :repeat(반복횟수,반복크기)
+최솟값과 최댓값: minmax(최솟값, 최댓값)
+*/
+
+
+    #wrapper {
+      display: grid;
+      /*    grid-template-columns:200px 200px 200px; /* 열 설정  고정너비*/
+      /*  grid-template-columns:4fr gfr; /* 상대적 비율 */
+      /*   grid-template-columns:repeat(2,200px);  */
+      /*  grid-template-columns: 150px 1fr 2fr auto; */
+      /*  grid-template-rows: 250px 250px; */
+
+
+      /*  grid-template-columns:repeat(2,minmax(250px, 1fr));*/
+      /*  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); 그대로 다채움 */
+      /* grid-template-columns:repeat(auto-fill, minmax(250px, 1fr)); 남는공간 비워둠 */
+
+
+
+
+
+      /*   grid-template-rows: repeat(3,250px); */
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+    .items {
+      padding: 10px;
+      background-color: #ccc;
+      border: 1px solid #000;
+    }
+
+    .items:nth-child(odd) {
+      background-color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat asperiores vero molestiae
+      ullam ad iusto laboriosam accusantium nobis.</div>
+    <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim alias perspiciatis laborum non ut
+      commodi veniam?</div>
+    <div class="items">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod asperiores ut sit placeat.</div>
+    <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium eum consequatur.
+    </div>
+    <div class="items">Lorem, ipsum dolor.
+    </div>
+  </div>
+</body>
+
+</html>

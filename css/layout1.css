@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+/* rese */
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body{background-color: #eee;}
+
+/* wrapper */
+#wrapper {
+  display: grid;
+  grid-template-columns: repeat(autofit,minmax(320px,1fr));
+}
+
+
+.card{background-color: #fff; box-shadow: 0 1px 5px #222; margin: 1rem;}
+.card header {font-size: 1.5rem; padding: 0.5rem; text-align: center;}
+.card img { width: 100%; display: block;}
+.card figcaption {padding: 0.5rem; }

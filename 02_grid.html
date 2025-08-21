@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid</title>
+  <style>
+
+    
+
+
+      /*   grid-template-rows: repeat(3,250px); */
+
+#wrapper {
+  width: 600px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 너비가 같은 컬럼 3개 */
+  grid-template-rows: minmax(100px, auto);
+  /* 1행만 적용,최소 100px   */
+}
+    
+
+
+
+
+
+
+
+    .items {
+      padding: 10px;
+      background-color: #ccc;
+      border: 1px solid #000;
+    }
+
+    .items:nth-child(odd) {
+      background-color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="wrapper">
+    <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae placeat asperiores vero molestiae
+      ullam ad iusto laboriosam accusantium nobis.</div>
+    <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim alias perspiciatis laborum non ut
+      commodi veniam?</div>
+    <div class="items">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod asperiores ut sit placeat.</div>
+    <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora laudantium eum consequatur.
+    </div>
+    <div class="items">Lorem, ipsum dolor.
+    </div>
+  </div>
+</body>
+
+</html>

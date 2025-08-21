@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>모던 와인 브랜드 장바구니</title>
+<link rel="stylesheet" href="css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<style>
+  :root {
+    --navy: #0d1438;
+    --smoky-nude: #d4a373;
+    --champagne-cream: #fff8f0;
+    --moss-olive: #566247;
+    --dark-plum: #3e1f3d;
+     --nude: #d4a373;
+  }
+
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+  /* Reset */
+  html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fff8f0;
+  color: #222;
+}
+
+#wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  box-sizing: border-box;
+}
+
+/* 와인 그리드 - 기본 데스크탑: 4열 */
+.wine-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* 태블릿: 2열 (1024px 이하) */
+@media (max-width: 1024px) {
+  .wine-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 1.5rem;
+    max-width: 100%;
+  }
+}
+
+/* 모바일: 1열 (600px 이하) */
+@media (max-width: 600px) {
+  .wine-grid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
+
+  main {
+    max-width: 1400px;
+    margin: 50px auto;
+    padding: 0 20px;
+  }
+
+  .cart-title {
+    font-size: 2.6rem;
+    font-weight: 800;
+    margin-bottom: 50px;
+    text-align: center;
+    color: var(--dark-plum);
+  }
+
+  .cart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 40px;
+  }
+
+  .product-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 6px 25px rgba(13, 20, 56, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.25s ease;
+  }
+
+  .product-card:hover {
+    transform: translateY(-8px);
+  }
+
+  .product-image {
+    width: 100%;
+     height: 300px; /* 원하는 높이로 조정 */
+    border-radius: 12px;
+    margin-bottom: 20px;
+    object-fit: cover;
+  }
+
+  .product-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ink-navy);
+    margin-bottom: 10px;
+  }
+
+  .product-desc {
+    font-size: 1rem;
+    color: var(--moss-olive);
+    flex-grow: 1;
+    margin-bottom: 20px;
+  }
+
+  .product-price {
+    font-weight: 700;
+    font-size: 1.15rem;
+    color: var(--dark-plum);
+    margin-bottom: 15px;
+  }
+
+  .btn-primary {
+    background: none;
+    border: 2.5px solid var(--smoky-nude);
+    color: var(--smoky-nude);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 12px 32px;
+    border-radius: 30px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background 0.3s ease, color 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.3px;
+  }
+
+  .btn-primary:hover {
+    background: var(--smoky-nude);
+    color: var(--champagne-cream);
+  }
+
+  .cart-summary {
+    margin-top: 60px;
+    background: #0d1438;
+    border-radius: 10px;
+    color: var(--champagne-cream);
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media (max-width: 480px) {
+    .cart-title {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+    .cart-summary {
+      flex-direction: column;
+      gap: 15px;
+      font-size: 1.2rem;
+      padding: 30px 25px;
+    }
+  }
+
+
+
+
+/* header */
+.site-header {
+  width: 100%;
+  background-color: #0d1438; /* 네이비 계열 */
+  padding: 1rem 0;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: 	#d4a373; 
+}
+
+
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav a {
+  color: 	#d4a373;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.main-nav a:hover {
+  color: #9c8031; /* 연한 와인 톤 */
+}
+
+
+
+/* 햄버거 버튼 스타일 */
+.menu-toggle {
+  display: none; /* 기본 숨김 */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1100;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  background-color: var(--nude); /* #d4a373 */
+  border-radius: 2px;
+}
+
+/* 반응형: 768px 이하일 때 햄버거 메뉴 보여주고, 메뉴 숨기기 */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .main-nav {
+    position: fixed;
+    top: 60px; /* 헤더 높이만큼 아래 */
+    right: 0;
+    width: 200px;
+    height: calc(100vh - 60px);
+    background-color: var(--navy);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    padding-top: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+  }
+
+  .main-nav.open {
+    transform: translateX(0);
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0;
+    padding: 0 1rem;
+    list-style: none;
+  }
+
+  .main-nav ul li a {
+    display: block;
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+  
+  /* 기존 헤더 flex justify-content 조정 */
+  .nav-container {
+    justify-content: space-between;
+  }
+}
+
+
+
+
+
+
+
+.wine-footer {
+  background-color: #0d1438;
+  color: #f8f4f0;
+  padding: 3rem 1rem 2rem;
+  font-family: 'Noto Serif KR', serif;
+    background-image: url('../images/line-img1.png');
+  background-repeat: no-repeat;
+   background-position: center;
+  background-size: 550px auto;
+  opacity: 1;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 2rem;
+}
+
+.footer-brand h2 {
+  font-size: 1.8rem;
+  color: #d4a373;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+  font-size: 1rem;
+  color: #d3c4b5;
+}
+
+.footer-links h4 {
+  color: #d4a373;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links ul li a {
+  color: #f8f4f0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+  color: #d4a373;
+}
+
+.footer-sns a {
+  color: #f8f4f0;
+  font-size: 1.2rem;
+  margin-right: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+.footer-sns a:hover {
+  color: #d4a373;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #c0b0a5;
+}
+
+
+
+
+
+
+
+
+.wine-footer-minimal {
+  background-color: #1b1210;
+  color: #f3eee8;
+  padding: 3rem 1rem;
+  text-align: center;
+  font-family: 'Noto Serif KR', serif;
+}
+
+.footer-logo {
+  font-size: 1.8rem;
+  color: #d4a373;
+  margin-bottom: 1.2rem;
+}
+
+.footer-nav {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0;
+  margin: 1rem 0;
+}
+
+.footer-nav li a {
+  text-decoration: none;
+  color: #f3eee8;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-nav li a:hover {
+  color: #d4a373;
+}
+
+.footer-social {
+  margin: 1rem 0;
+}
+
+.footer-social a {
+  color: #f3eee8;
+  font-size: 1.2rem;
+  margin: 0 0.6rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #d4a373;
+}
+
+.footer-copy {
+  font-size: 0.9rem;
+  color: #b8a89d;
+  margin-top: 1.5rem;
+}
+
+
+
+@media screen and (max-width: 767px) {
+  .footer-logo img {
+    width: 200px; 
+  }
+}
+
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+
+
+
+<header class="site-header">
+  <div class="nav-container">
+    <h1 class="logo">
+      <a href="index.html"><img src="./images/logo-ori.png" alt="" width="250"></a>
+    </h1>
+    <button class="menu-toggle" aria-label="메뉴 열기">
+      <!-- 햄버거 아이콘 3줄 -->
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">홈</a></li>
+        <li><a href="wine.html">와인소개</a></li>
+        <li><a href="story.html">스토리</a></li>
+        <li><a href="index.html#collection">컬렉션</a></li>
+        <li><a href="index.html#event">이벤트</a></li>
+        <li><a href="cart.html">장바구니</a></li>
+        <li><a href="customer.html">고객센터</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+
+
+<main>
+  <h2 class="cart-title">장바구니</h2>
+
+<section class="cart-grid">
+  <article class="product-card" data-aos="fade-up" data-aos-delay="0" data-aos-duration="800">
+    <img src="./images/cart-1.png" alt="와인 1" class="product-image" />
+    <h3 class="product-name">르 샤토 드 보르도 2016</h3>
+    <p class="product-desc">풍부한 과실향과 부드러운 타닌이 조화를 이루는 고급 와인.</p>
+    <p class="product-price">₩250,000</p>
+    <button class="btn-primary">구매하기</button>
+  </article>
+
+  <article class="product-card" data-aos="fade-up" data-aos-delay="150" data-aos-duration="800">
+    <img src="./images/cart-2.png" alt="와인 2" class="product-image" />
+    <h3 class="product-name">클래식 스모키 누드 셀렉션</h3>
+    <p class="product-desc">은은한 골드빛 라벨의 희소 와인, 감각적인 맛과 향.</p>
+    <p class="product-price">₩280,000</p>
+    <button class="btn-primary">구매하기</button>
+  </article>
+
+  <article class="product-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
+    <img src="./images/cart-3.png" alt="와인 3" class="product-image" />
+    <h3 class="product-name">다크 플럼 리저브 2018</h3>
+    <p class="product-desc">예술적 감성을 담은 한정판 와인, 깊고 우아한 맛.</p>
+    <p class="product-price">₩350,000</p>
+    <button class="btn-primary">구매하기</button>
+  </article>
+</section>
+
+
+  <div class="cart-summary">
+    <span>총 합계:</span>
+    <span>₩880,000</span>
+  </div>
+</main>
+
+<footer class="wine-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h2>Il Vino,<br> Capolavoro del Tempo</h2>
+      <p>자베르 와인<br>
+        고귀한 향, 품격의 와인. 시간이 만든 예술.</p>
+    </div>
+
+    <div class="footer-links">
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="story.html">About Us</a></li>
+          <li><a href="wine.html">Our Story</a></li>
+          <li><a href="#">Sustainability</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Support</h4>
+        <ul>
+          <li><a href="customer.html">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Follow</h4>
+        <div class="footer-sns">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Javèr. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+
+
+
+<footer class="wine-footer-minimal">
+  <div class="footer-logo"><a href="index.html"><img src="./images/logo-ori.png" alt="" width="300"></a></img>
+  </div>
+
+  
+</footer>
+
+
+
+
+
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const container = document.getElementById("cart-items");
+
+      if (cart.length === 0) {
+        container.innerHTML = "<p>장바구니가 비어 있습니다.</p>";
+      } else {
+        container.innerHTML = "<ul>" +
+          cart.map(item => `<li>${item.name}</li>`).join("") +
+          "</ul>";
+      }
+    });
+  </script>
+
+
+
+
+
+<!-- 헤더 모바일 -->
+<script>
+  const menuToggle = document.querySelector('.menu-toggle');
+const mainNav = document.querySelector('.main-nav');
+
+menuToggle.addEventListener('click', () => {
+  mainNav.classList.toggle('open');
+  
+  // 버튼 aria-label도 토글
+  if (mainNav.classList.contains('open')) {
+    menuToggle.setAttribute('aria-label', '메뉴 닫기');
+  } else {
+    menuToggle.setAttribute('aria-label', '메뉴 열기');
+  }
+});
+</script>
+
+
+
+
+
+
+
+
+<script>
+  AOS.init({
+    duration: 1200,
+    easing: 'ease-in-out',
+    mirror: true,
+    once: false
+  });
+
+</script>
+
+</body>
+</html>

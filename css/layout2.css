@@ -1,0 +1,21 @@
+@charset "utf-8";
+
+/* rese */
+* {margin: 0; padding: 0; box-sizing: border-box;}
+body{background-color: #eee;}
+
+/* wrapper */
+#wrapper {
+  max-width: 1200px; margin: 2rem auto;padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(autofit,minmax(280px,1fr)); gap:1.5rem;
+}
+
+
+.card{background-color: #fff; border-radius: 6px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); transition: all 0.2s ease;
+overflow: hidden;}
+.card:hover { transform:translateY()(-5px);}
+
+.card header { background-color: #333; color: #fff; padding: 1rem; font-size: 1.25rem; text-align:center;}
+.card img { width: 100%; display: block;}
+.card figcaption {padding: 1rem; color: #555; }

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+
+  <style>
+    html,
+    body {
+        margin: 0;
+  padding: 0;}
+
+    body {
+      background: #ffffff;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    swiper-container {
+      width: 100%;
+      height: 100%;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #444;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+  <swiper-container class="mySwiper"  pagination="true" pagination-clickable="true"  space-between="10"
+    autoplay-delay="2000"
+  autoplay-disable-on-interaction="false"   speed="1000"
+    slides-per-view="3">
+
+        <swiper-slide>
+      <img src="./images/st-3.png" alt="">
+          <div class="slide-text">
+    </div>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="./images/st-4.png" alt="">    
+      <div class="slide-text">
+    </div>
+    </swiper-slide>
+
+     <swiper-slide>
+      <img src="./images/st-5.png" alt="">    
+      <div class="slide-text">
+    </div>
+    </swiper-slide>
+
+    <swiper-slide>
+      <img src="./images/st-6.png" alt="">
+          <div class="slide-text">
+    </div>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="./images/st-7.png" alt="">    
+      <div class="slide-text">
+    </div>
+    </swiper-slide>
+
+     <swiper-slide>
+      <img src="./images/st-8.png" alt="">   
+       <div class="slide-text">
+    </div>
+    </swiper-slide>
+
+    <swiper-slide>
+      <img src="./images/mem-1.png" alt="">
+          <div class="slide-text">
+    </div>
+    </swiper-slide>
+    <swiper-slide>
+      <img src="./images/mem-2.png" alt="">    <div class="slide-text">
+    </div>
+    </swiper-slide>
+
+     <swiper-slide>
+      <img src="./images/e-1.png" alt="">    <div class="slide-text">
+    </div>
+    </swiper-slide>
+
+    
+  </swiper-container>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
+</body>
+
+</html>
